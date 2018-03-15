@@ -94,12 +94,13 @@ import time
 
 num_steps = 3000
 display_every = 100
+batch_size = 500
 
 start_time = time.time()
 end_time = time.time()
 
 for i in range(num_steps):
-    batch = mnist.train.next_batch(50)
+    batch = mnist.train.next_batch(batch_size)
     train_step.run(feed_dict={x: batch[0], y: batch[1], keep_prob: 0.5})
 
     if i%display_every == 0:
